@@ -32,7 +32,7 @@ if (args.length === 0) {
 else if (args.length === 2) {
   const [month, year] = args;
 
-  console.log(`generateMonth(${year}, ${month})`);
+  Month.generateMonth(parseInt(year), parseInt(month));
 }
 else if (args.length === 1) {
   const[year] = args;
