@@ -12,7 +12,7 @@ const Year = require('./lib/year');
 const [,, ...args] = process.argv;
 
 
-console.log('args: ', args);
+// console.log('args: ', args);
 
 
 if (args.length === 0) {
@@ -27,7 +27,6 @@ if (args.length === 0) {
   // day is (1-31);
   let day = today.getDate();
 
-  console.log(`Current date = ${month} ${day}, ${year}`);
   Month.generateMonth(year, month);
 }
 else if (args.length === 2) {
