@@ -99,6 +99,27 @@ describe('cal', () => {
       it('returns 4 (Thursday) for March 1, 2300', () => {
         expect(zellers.getDay(2300, 3, 1)).to.equal(4);
       });
+
+      // 2015, 12, 1 === 2
+      it('returns 2 (Tuesday) for December 1, 2015', () => {
+        expect(zellers.getDay(2015, 12, 1)).to.equal(2);
+      });
+
+      // 2016, 1, 1 === 5
+      it('returns 5 (Friday) for January 1, 2016', () => {
+        expect(zellers.getDay(2016, 1, 1)).to.equal(5);
+      });
+
+      // 2016, 2, 1 === 1
+      it('returns 1 (Monday) for January 1, 2016', () => {
+        expect(zellers.getDay(2016, 2, 1)).to.equal(1);
+      });
+
+      // 2016, 3, 1 === 1
+      it('returns 2(Tuesday) for March 1, 2016', () => {
+        expect(zellers.getDay(2016, 3, 1)).to.equal(2);
+      });
+
     });
   });
 
