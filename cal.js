@@ -35,7 +35,6 @@ else if (args.length === 2) {
   // get CLI arguments
   const [month, year] = args;
   let output = Month.generateMonth(parseInt(month), parseInt(year));
-  console.log("outputting...", output);
   Month.printMonth(output);
 }
 
@@ -43,7 +42,8 @@ else if (args.length === 2) {
 // generate a single year ($ cal.js <year>)
 else if (args.length === 1) {
   const[year] = args;
-  Year.generateYear(parseInt(year));
+  let output = Year.generateYear(parseInt(year));
+  Year.printYear(output);
 }
 else {
   console.log('invalid args.length');
