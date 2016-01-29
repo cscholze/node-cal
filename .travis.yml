@@ -3,4 +3,5 @@ node_js:
   - "node"
   - "5"
   - "4.0"
+  - "iojs"
 script: npm run coverall
