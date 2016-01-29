@@ -12,9 +12,7 @@ const Year = require('./lib/year');
 const [,, ...args] = process.argv;
 
 
-// console.log('args: ', args);
-
-
+// generate current month ($ cal.js )
 if (args.length === 0) {
   let today = new Date();
 
@@ -27,18 +25,24 @@ if (args.length === 0) {
   // day is (1-31);
   let day = today.getDate();
 
-  Month.generateMonth(year, month);
-}
-else if (args.length === 2) {
-  const [month, year] = args;
-
-  let output = Month.generateMonth(parseInt(month), parseInt(year));
-  console.log(output);
+  let output = Month.generateMonth(month,year);
   Month.printMonth(output);
 }
+
+
+// generate a single month ($ cal.js <month> <year>)
+else if (args.length === 2) {
+  // get CLI arguments
+  const [month, year] = args;
+  let output = Month.generateMonth(parseInt(month), parseInt(year));
+  console.log("outputting...", output);
+  Month.printMonth(output);
+}
+
+
+// generate a single year ($ cal.js <year>)
 else if (args.length === 1) {
   const[year] = args;
-
   Year.generateYear(parseInt(year));
 }
 else {

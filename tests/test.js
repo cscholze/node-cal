@@ -5,14 +5,14 @@ const { execSync } = require('child_process');
 
 describe('cal', () => {
   describe('CLI', () => {
-    xit('should handle the current month', () => {
+    it('should handle the current month', () => {
       const goal = execSync('cal').toString();
       const output = execSync('./cal.js').toString();
 
       expect(output).to.equal(goal);
     });
 
-    xit('should handle arguments [month, year]', () => {
+    it('should handle arguments [month, year]', () => {
       const goal = execSync('cal 2 2016').toString();
       const output = execSync('./cal.js 2 2016').toString();
 
