@@ -11,6 +11,20 @@ describe('cal', () => {
 
       expect(output).to.equal(goal);
     });
+
+    it('should handle arguments [month, year]', () => {
+      const goal = execSync('cal 2 2016').toString();
+      const output = execSync('./cal.js 2 2016').toString();
+
+      expect(output).to.equal(goal);
+    });
+
+    it('should handle argument for a year', () => {
+      const goal = execSync('cal 2016').toString();
+      const output = execSync('./cal.js 2016').toString();
+
+      expect(output).to.equal(goal);
+    });
   });
   // tests for zeller.js module
   describe("Zeller's congruence", () => {
@@ -157,6 +171,60 @@ describe('cal', () => {
       });
 
     });
+
+    describe('isleapYear', () => {
+      it('is a function of year.js', () => {
+        expect(month.isLeapYear).to.be.a('function');
+      });
+
+      it('isLeapYear(2400) returns true', () => {
+        expect(month.isLeapYear(2400)).to.be.true;
+      });
+      it('isLeapYear(2016) returns true', () => {
+        expect(month.isLeapYear(2400)).to.be.true;
+      });
+      it('isLeapYear(2000) returns true', () => {
+        expect(month.isLeapYear(2400)).to.be.true;
+      });
+      it('isLeapYear(2500) returns false', () => {
+        expect(month.isLeapYear(2500)).to.be.false;
+      });
+      it('isLeapYear(1995) returns false', () => {
+        expect(month.isLeapYear(1995)).to.be.false;
+      });
+    });
+
+    describe('isValidYear', () => {
+      it('is a function of month.js', () => {
+        expect(month.isValidYear).to.be.a('function');
+      });
+
+      it('returns false if year < 1753', () => {
+        expect(month.isValidYear(1752)).to.be.false;
+      });
+
+      it('returns false if year > 9999', () => {
+        expect(month.isValidYear(10000)).to.be.false;
+      });
+
+      it('returns false if year is not a number', () => {
+        expect(month.isValidYear('a')).to.be.false;
+      });
+
+      it('returns false if year is not an integer', () => {
+        expect(month.isValidYear(1.321)).to.be.false;
+      });
+
+      it('returns true if year is > 1752', () => {
+        expect(month.isValidYear(1753)).to.be.true;
+      });
+
+      it('returns true if year is < 10000', () => {
+        expect(month.isValidYear(9999)).to.be.true;
+      });
+    });
+
+
   });
 
   describe('year.js module', () => {
@@ -168,57 +236,6 @@ describe('cal', () => {
       });
     });
 
-    describe('isleapYear', () => {
-      it('is a function of year.js', () => {
-        expect(year.isLeapYear).to.be.a('function');
-      });
-
-      it('isLeapYear(2400) returns true', () => {
-        expect(year.isLeapYear(2400)).to.be.true;
-      });
-      it('isLeapYear(2016) returns true', () => {
-        expect(year.isLeapYear(2400)).to.be.true;
-      });
-      it('isLeapYear(2000) returns true', () => {
-        expect(year.isLeapYear(2400)).to.be.true;
-      });
-      it('isLeapYear(2500) returns false', () => {
-        expect(year.isLeapYear(2500)).to.be.false;
-      });
-      it('isLeapYear(1995) returns false', () => {
-        expect(year.isLeapYear(1995)).to.be.false;
-      });
-    });
-
-    describe('isValidYear', () => {
-      it('is a function of year.js', () => {
-        expect(year.isValidYear).to.be.a('function');
-      });
-
-      it('returns false if year < 1753', () => {
-        expect(year.isValidYear(1752)).to.be.false;
-      });
-
-      it('returns false if year > 9999', () => {
-        expect(year.isValidYear(10000)).to.be.false;
-      });
-
-      it('returns false if year is not a number', () => {
-        expect(year.isValidYear('a')).to.be.false;
-      });
-
-      it('returns false if year is not an integer', () => {
-        expect(year.isValidYear(1.321)).to.be.false;
-      });
-
-      it('returns true if year is > 1752', () => {
-        expect(year.isValidYear(1753)).to.be.true;
-      });
-
-      it('returns true if year is < 10000', () => {
-        expect(year.isValidYear(9999)).to.be.true;
-      });
-    });
 
 
   });
