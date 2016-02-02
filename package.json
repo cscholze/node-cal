@@ -4,9 +4,9 @@
   "description": "A JS implementation of UNIX 'cal' program to run in NodeJS.",
   "main": "cal.js",
   "scripts": {
-    "test": "mocha --harmony_destructuring tests",
-    "cover": "node --harmony_destructuring ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha tests",
-    "coverall": "node --harmony_destructuring ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha tests --report lcovonly -- -R spec && cat ./tests/coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./tests/coverage"
+    "test": "mocha tests",
+    "cover": "node ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha tests",
+    "coverall": "node ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha tests --report lcovonly -- -R spec && cat ./tests/coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./tests/coverage"
   },
   "repository": {
     "type": "git",

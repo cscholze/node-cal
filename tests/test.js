@@ -1,7 +1,7 @@
 'use strict';
 
-const { expect } = require('chai');
-const { execSync } = require('child_process');
+const expect = require('chai').expect;
+const execSync = require('child_process').execSync;
 
 describe('cal', () => {
   describe('CLI', () => {
