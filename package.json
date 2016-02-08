@@ -12,6 +12,19 @@
     "type": "git",
     "url": "git+https://github.com/cscholze/node-cal.git"
   },
+  "eslintConfig": {
+    "env": {
+      "mocha": true,
+      "node": true,
+      "es6": true
+    },
+    "extends": "eslint:recommended",
+    "rules": {
+      "no-console" : 0,
+      "dot-notation": 1,
+      "eqeqeq": 1
+    }
+  },
   "author": "Caleb Scholze <jcsdevel@gmail.com>",
   "license": "MIT",
   "bugs": {
